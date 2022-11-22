@@ -1,6 +1,9 @@
 # MBES Processing Toolbox
 Processing Tool for hydroacoustic data recorded by multibeam echosounder (MBES) systems to classify anthropogenically impacted seafloor surface by bottom trawling, whose characteristics differ significantly from geologic morphologies. The advantage is that the statistic of the measured bathymetry is computed before the actual grid is performed.
 
+## Publication in [Remote Sensing](https://www.mdpi.com/journal/remotesensing)
+This toolbox is used in the publication of Schönke et al. ([2022](https://doi.org/10.3390/rs14122782)). To replicate the processing used in the paper download version [1.0.0](https://github.com/SchoenkeM/MBES_Processing_Toolbox/releases/1.0.0), since new versions will be released as the toolbox evolves further. The MBES raw data presented in that study are stored on dedicated servers at the Leibniz Institute for Baltic Sea Research Warnemünde and are available from the corresponding author at reasonable request via [e-mail](mailto:mischa.schoenke@io-warnemuende.de). The point cloud data (ship logs and soundings) used for the calculations are available [here](https://doi.org/10.5281/zenodo.6597161).
+
 ## Installation
 ### Download the latest release
 1. Visit the [latest release](https://github.com/SchoenkeM/MBES_Processing_Toolbox/releases/latest/).

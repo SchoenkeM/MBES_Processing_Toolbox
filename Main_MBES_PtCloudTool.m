@@ -62,7 +62,7 @@ close all
 clear all
 
 %% ========================================================================
-%__________________________________________________________________________
+
 % Setup paths relative to git repository
 areaId  = 'Control'; % Either 'Control' or 'MPA'
 BaseDir = '../../GIS/layers/data/QPSSourceFile';
@@ -85,28 +85,8 @@ JoinShipTracks(ShipTrackDir,ShipTrackName);
 
 %__________________________________________________________________________
 % Relative to git repository
-MBESInputData = [BaseDir,'/BeamGeometry_',areaId];
 
-%__________________________________________________________________________
-% Input Dir of all EMB238 data (PC GEO-65) 
-%  ShipTrackDir= 'E:\IOW Marine Geophysik Dropbox\Mischa Schönke\4_Projekte\MGF\EMB238\DataAnalysis\MBES\EMB238_Matlab_Analysis\Tracklog_Control'; %Geo-65
-%  ShipTrackName='ShipTrack_Control.txt';
-%  MBESInputData ='E:\IOW Marine Geophysik Dropbox\Mischa Schönke\4_Projekte\MGF\EMB238\DataAnalysis\MBES\EMB238_Matlab_Analysis\BeamGeometry_Control';
-
-%  ShipTrackDir= 'E:\IOW Marine Geophysik Dropbox\Mischa Schönke\4_Projekte\MGF\EMB238\DataAnalysis\MBES\EMB238_Matlab_Analysis\Tracklog_MPA';
-%  ShipTrackName='ShipTrack_MPA.txt';
-%  MBESInputData ='E:\IOW Marine Geophysik Dropbox\Mischa Schönke\4_Projekte\MGF\EMB238\DataAnalysis\MBES\EMB238_Matlab_Analysis\BeamGeometry_MPA';
-
-%__________________________________________________________________________
-% Input Dir of all EMB267 data (PC GEO-65) 
-%   ShipTrackDir='E:\IOW Marine Geophysik Dropbox\Mischa Schönke\4_Projekte\MGF\EMB267\DataAnalysis\MBES\EMB267_Matlab_Analysis\Tracklog_Control';
-%   ShipTrackName='ShipTrack_Control.txt';
-%   MBESInputData ='E:\IOW Marine Geophysik Dropbox\Mischa Schönke\4_Projekte\MGF\EMB267\DataAnalysis\MBES\EMB267_Matlab_Analysis\BeamGeometry_Control';
-
-%  ShipTrackDir='E:\IOW Marine Geophysik Dropbox\Mischa Schönke\4_Projekte\MGF\EMB267\DataAnalysis\MBES\EMB267_Matlab_Analysis\Tracklog_MPA';
-%  ShipTrackName='ShipTrack_MPA.txt';
-%  MBESInputData ='E:\IOW Marine Geophysik Dropbox\Mischa Schönke\4_Projekte\MGF\EMB267\DataAnalysis\MBES\EMB267_Matlab_Analysis\BeamGeometry_MPA';
-
+MBESInputData = []; % set path to folder containing MBES data here 
 
 ShipTrackDir= fullfile(ShipTrackDir,ShipTrackName);
 
@@ -115,13 +95,7 @@ ShipTrackDir= fullfile(ShipTrackDir,ShipTrackName);
     Config.LoadRawDataIfExist          = 'true';
     Config.LoadProcessedDataIfExist    = 'true';
     Config.LoadGridDataIfExist         = 'true'; 
-    Config.LoadStatisticDataIfExist    = 'flase';     
-    
-%     Config.LoadRawDataIfExist          = 'true';
-%     Config.LoadProcessedDataIfExist    = 'false';
-%     Config.LoadGridDataIfExist         = 'false'; 
-%     Config.LoadStatisticDataIfExist    = 'false'; 
-
+    Config.LoadStatisticDataIfExist    = 'true';     
      
 % Set Global Filter:
     Config.FilterBeamsWith2FewValues    = 'true';        
@@ -149,16 +123,6 @@ ShipTrackDir= fullfile(ShipTrackDir,ShipTrackName);
     
     Config.statistic.rmBIASKurtosis     = 1;   % [1] bias is removed; 0 Bias is not removed     
     Config.statistic.rmBIASSkewness     = 1;   % [1] bias is removed; 0 Bias is not removed  
-
-% Move median filter (not implemented jet)      
-%    Config.MovMedianFilter               = 'true'; 
-%    Config.FilterRadius                  = 0.5;      % Captures all samples within the filter radius around the current sample point 
-%    Config.FilterConfidenceIntervall     = 3;        % mean +/- std*ConfidenceIntervall -> gauss distribution of the distance between the current position and all other samples within filter radius
-%    Config.minNrOfSamplesInRadius        = 5;        % minumum number of points within the filter radius required to consider the current sample point valid
-    
-% Set Options for Spatial analysis (not implemented jet):
-%    Config.SpatialAnalysis               = 'true'; 
-%    Config.TaperMethod                   = 'tukey'; 
     
 % Grid Data config         
     Config.RemoveOutlier                 = 'true';
